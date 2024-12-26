@@ -8,20 +8,11 @@ public class BookingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private long id;
+    private Long id;
     private FlightEntity flight;
-    private BookingEntity booking;
     private PassengerEntity createdBy;
     private List<PassengerEntity> passengers;
     private Boolean isActive;
-
-    public BookingEntity(long id, FlightEntity flight, PassengerEntity createdBy, List<PassengerEntity> passengers, Boolean isActive) {
-        this.id = id;
-        this.flight = flight;
-        this.createdBy = createdBy;
-        this.passengers = passengers;
-        this.isActive = true;
-    }
 
     public BookingEntity(Long id, FlightEntity flight, PassengerEntity createdBy, Boolean isActive) {
         this.id = id;
@@ -37,28 +28,28 @@ public class BookingEntity implements Serializable {
         this.isActive = true;
     }
 
+    public BookingEntity(Long id, FlightEntity flight, PassengerEntity createdBy, List<PassengerEntity> passengers) {
+        this.id = id;
+        this.flight = flight;
+        this.createdBy = createdBy;
+        this.passengers = passengers;
+        this.isActive = true;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public FlightEntity getFlight() {
         return flight;
     }
 
     public void setFlight(FlightEntity flight) {
         this.flight = flight;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public BookingEntity getBooking() {
-        return booking;
-    }
-
-    public void setBooking(BookingEntity booking) {
-        this.booking = booking;
     }
 
     public PassengerEntity getCreatedBy() {
@@ -86,16 +77,16 @@ public class BookingEntity implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BookingEntity that = (BookingEntity) o;
-        return id == that.id && Objects.equals(flight, that.flight) && Objects.equals(booking, that.booking) && Objects.equals(createdBy, that.createdBy) && Objects.equals(passengers, that.passengers) && Objects.equals(isActive, that.isActive);
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        BookingEntity booking = (BookingEntity) object;
+        return Objects.equals(id, booking.id) && Objects.equals(flight, booking.flight) && Objects.equals(createdBy, booking.createdBy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, flight, booking, createdBy, passengers, isActive);
+        return Objects.hash(id, flight, createdBy);
     }
 
     @Override
@@ -103,7 +94,6 @@ public class BookingEntity implements Serializable {
         return "BookingEntity{" +
                 "id=" + id +
                 ", flight=" + flight +
-                ", booking=" + booking +
                 ", createdBy=" + createdBy +
                 ", passengers=" + passengers +
                 ", isActive=" + isActive +

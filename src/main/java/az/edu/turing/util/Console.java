@@ -60,7 +60,7 @@ public class Console {
     private static final BookingController bookingController = new BookingController(bookingService);
 
     public void run() {
-//        createFlights();
+        createFlights();
         showCommandList();
         while (true) {
             int command = getValidInt("Enter a command: ");
@@ -228,7 +228,7 @@ public class Console {
         System.out.printf("%-15s%-15s%-15s%-15s%-15s\n",
                 flight.getFlightId(),
                 flight.getDepartureDate().format(AppConstants.FLIGHT_DATE_FORMAT),
-                flight.getDepartureTime().format(AppConstants.FLIGHT_DATE_FORMAT),
+                flight.getDepartureTime().format(AppConstants.FLIGHT_TIME_FORMAT),
                 flight.getDestinationPoint(),
                 flight.getFreeSeats());
     }

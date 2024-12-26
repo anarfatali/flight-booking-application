@@ -1,5 +1,6 @@
 package az.edu.turing;
 
+
 import az.edu.turing.util.Console;
 
 public class App {

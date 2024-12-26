@@ -14,25 +14,28 @@ public class FlightEntity implements Serializable {
     private Integer totalSeats;
     private Integer freeSeats;
 
-    public FlightEntity(LocalDateTime departureDateTime, String destinationPoint, Integer totalSeats, Integer freeSeats) {
+    public FlightEntity(LocalDateTime departureDateTime, String destinationPoint, Integer totalSeats) {
         this.departureDateTime = departureDateTime;
         this.destinationPoint = destinationPoint;
         this.totalSeats = totalSeats;
-        this.freeSeats = freeSeats;
+        this.freeSeats = totalSeats;
     }
 
-    public FlightEntity(Long id, LocalDateTime departureDateTime, String destinationPoint, Integer totalSeats, Integer freeSeats) {
+    public FlightEntity(Long id, LocalDateTime departureDateTime, String destinationPoint, Integer totalSeats) {
+        this.id = id;
+        this.departureDateTime = departureDateTime;
+        this.destinationPoint = destinationPoint;
+        this.totalSeats = totalSeats;
+        this.freeSeats = totalSeats;
+    }
+
+    public FlightEntity
+            (Long id, LocalDateTime departureDateTime, String destinationPoint, Integer totalSeats, Integer freeSeats) {
         this.id = id;
         this.departureDateTime = departureDateTime;
         this.destinationPoint = destinationPoint;
         this.totalSeats = totalSeats;
         this.freeSeats = freeSeats;
-    }
-
-    public FlightEntity(LocalDateTime departureTime, String destinationPoint, Integer totalSeats) {
-        this.departureDateTime = departureTime;
-        this.destinationPoint = destinationPoint;
-        this.totalSeats = totalSeats;
     }
 
     public Long getId() {
@@ -76,11 +79,11 @@ public class FlightEntity implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        FlightEntity that = (FlightEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(destinationPoint, that.destinationPoint) ;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        FlightEntity that = (FlightEntity) object;
+        return Objects.equals(id, that.id) && Objects.equals(destinationPoint, that.destinationPoint);
     }
 
     @Override
@@ -92,7 +95,7 @@ public class FlightEntity implements Serializable {
     public String toString() {
         return "FlightEntity{" +
                 "id=" + id +
-                ", departureDateTime=" + departureDateTime +
+                ", departureTime=" + departureDateTime +
                 ", destinationPoint='" + destinationPoint + '\'' +
                 ", totalSeats=" + totalSeats +
                 ", freeSeats=" + freeSeats +
