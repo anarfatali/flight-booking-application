@@ -4,5 +4,5 @@ import az.edu.turing.model.dto.PassengerDTO;
 
 public interface PassengerService {
 
-    PassengerDTO create (PassengerDTO request);
+    PassengerDTO create(PassengerDTO request);
 }

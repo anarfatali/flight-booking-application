@@ -29,6 +29,12 @@ public class FlightEntity implements Serializable {
         this.freeSeats = freeSeats;
     }
 
+    public FlightEntity(LocalDateTime departureTime, String destinationPoint, Integer totalSeats) {
+        this.departureDateTime = departureTime;
+        this.destinationPoint = destinationPoint;
+        this.totalSeats = totalSeats;
+    }
+
     public Long getId() {
         return id;
     }
@@ -74,12 +80,12 @@ public class FlightEntity implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FlightEntity that = (FlightEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(departureDateTime, that.departureDateTime) && Objects.equals(destinationPoint, that.destinationPoint) && Objects.equals(totalSeats, that.totalSeats) && Objects.equals(freeSeats, that.freeSeats);
+        return Objects.equals(id, that.id) && Objects.equals(destinationPoint, that.destinationPoint) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, departureDateTime, destinationPoint, totalSeats, freeSeats);
+        return Objects.hash(id, destinationPoint);
     }
 
     @Override

@@ -2,30 +2,13 @@ package az.edu.turing.domain.dao.abstracts;
 
 import az.edu.turing.domain.dao.DAO;
 import az.edu.turing.domain.entity.FlightEntity;
+import az.edu.turing.model.dto.request.FlightSearchRequest;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
 
-public abstract class FlightDAO implements DAO <FlightEntity, Long> {
+public abstract class FlightDAO implements DAO<FlightEntity, Long> {
 
-    @Override
-    public Collection<FlightEntity> findAll() {
-        return List.of();
-    }
+    public abstract Collection<FlightEntity> findAllWithInNext24Hours();
 
-    @Override
-    public FlightEntity create(FlightEntity entity) {
-        return null;
-    }
-
-    @Override
-    public Optional<FlightEntity> getById(Long id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public void saveChanges() {
-
-    }
+    public abstract Collection<FlightEntity> search(FlightSearchRequest request);
 }

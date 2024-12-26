@@ -2,7 +2,7 @@ package az.edu.turing.exception;
 
 public class FlightNotFoundException extends NotFoundException {
 
-    public FlightNotFoundException() {
-        super("Flight not found");
+    public FlightNotFoundException(String message) {
+        super(message);
     }
 }

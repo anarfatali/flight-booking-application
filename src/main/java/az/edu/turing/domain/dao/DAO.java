@@ -3,7 +3,7 @@ package az.edu.turing.domain.dao;
 import java.util.Collection;
 import java.util.Optional;
 
-public interface DAO <E , I> {
+public interface DAO<E, I> {
 
     Collection<E> findAll();
 

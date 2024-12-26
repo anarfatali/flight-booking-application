@@ -13,8 +13,7 @@ public class DatabaseConfig {
                     System.getenv("DB_USER"),
                     System.getenv("DB_PASSWORD")
                     );
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             throw new SQLException("Failed to connect to database", e);
         }

@@ -1,8 +1,8 @@
 package az.edu.turing.model.dto.constants;
 
-public class DatabaseQueries {
+public final class DatabaseQueries {
 
-    public static final String CREATE_TABLE_PASSENGER =
+    public static final String CREATE_TABLE_PASSENGERS =
             "CREATE TABLE IF NOT EXISTS passengers" +
                     "(" +
                     "    id        BIGSERIAL PRIMARY KEY," +
